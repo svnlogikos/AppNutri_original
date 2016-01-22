@@ -176,7 +176,7 @@ class PacienteController extends Controller
 				
 				if($control)
 				{
-					echo '<div class="alert alert-success" role="alert">El paciente se actualizó correctamente.</div>';
+					echo '<div class="alert alert-success" role="alert">El paciente se actualizó correctamente.<a href="'.url('/').'/pacientes/detalle/'.$datos_paciente['id'].'">Regresar al detalle del paciente.</a></div>';
 				}
 				//$paciente_generado = Paciente::create($datos_paciente);
         
