@@ -66,20 +66,7 @@ class ControlController extends Controller
 
 				}
 				else 
-				{	//print_r($datos_nuevo_control);
-					/*$control = Control::find($datos_nuevo_control['fk_id_paciente']);
-						
-					$control -> fk_id_paciente = $datos_nuevo_control['fk_id_paciente'];
-					$control -> fecha_control = $datos_nuevo_control['fecha_control'];
-					$control -> control = $datos_nuevo_control['control'];
-
-					$ctrl = $control->save();
-					
-					if($ctrl)
-					{	echo "OK!</br>";
-						//echo '<div class="alert alert-success" role="alert">El paciente se actualizó correctamente.<a href="'.url('/').'/pacientes/detalle/'.$datos_paciente['id'].'">Regresar al detalle del paciente.</a></div>';
-					}*/
-					
+				{	
 					$ctrl = Control::create($datos_nuevo_control);
 					
 					echo '<div class="alert alert-success" role="alert">El control se creó correctamente. <a href="'.url('/').'/pacientes/detalle/'.$datos_nuevo_control['fk_id_paciente'].'">Volver al detalle del paciente.</a></div>';
