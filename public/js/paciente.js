@@ -72,6 +72,37 @@ jQuery(document).ready(function($){
 });
 
 jQuery(document).ready(function($){
+       $('#alta_control').click(function(event) {
+         event.preventDefault();
+         
+        var datos = $('#form-alta-control').serialize();
+        var action = $('#form-alta-control').attr('action');
+        $.ajax({
+          url: action,
+          type: 'POST',
+          data: datos,
+          error: function(e) {
+                  alert('Error' + e.toString());
+                    
+                },
+          beforeSend: function () {
+                  //$("#resultados_ajax").fadeIn();
+                  //$("#resultados_ajax").html("<img src='http://app_insumos_pre/public/theme/ajax-loader.gif'>");
+                },
+          success:  function (response) {
+                 $("#mensajes_ajax").html(response);
+                        
+                }
+        })
+        //Ubico el foco en este div
+       $('html, body').animate({
+        scrollTop: $("#mensajes_ajax").offset().top
+       }, 1000);
+        
+      });;
+});
+
+jQuery(document).ready(function($){
        $('#edita_paciente').click(function(event) {
          event.preventDefault();
          
@@ -111,6 +142,16 @@ jQuery(document).ready(function($){
         lang:'es'
     }); 
 });
+
+jQuery(document).ready(function($)
+{
+    $('input[name=fecha_control]').datetimepicker({
+        format:'Y-m-d',
+        timepicker: false,
+        lang:'es'
+    }); 
+}
+);
 
 jQuery(document).ready(function($) {
   $('.btn-eliminar').click(function(event) {

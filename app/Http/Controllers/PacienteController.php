@@ -41,7 +41,8 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->ajax()) {
+        if ($request->ajax()) 
+		{
             $datos_nuevo_paciente = $request->all();
 
             //defino las reglas de validación

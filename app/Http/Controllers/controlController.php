@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Paciente;
+use App\Control;
 use App\Http\Controllers\Controller;
 
-class controlController extends Controller
+class ControlController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,9 +25,9 @@ class controlController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        return \View::make('controles.create',['id_paciente' => $id]);
     }
 
     /**
@@ -38,7 +38,67 @@ class controlController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->ajax()) 
+		{
+            if ($request->ajax()) 
+			{
+				$datos_nuevo_control = $request->all();
+
+				//defino las reglas de validación
+				$reglas = array(
+				'fecha_control' => array('required'),
+				'control' => array('required')
+				//'email' => array('required','email')
+				);
+
+				//Valido los datos de entrada
+				$validator = \Validator::make($datos_nuevo_control, $reglas);
+
+				if ($validator->fails()) {
+
+					$messages = $validator->messages();
+					echo '<div class="alert alert-danger" role="alert">';
+
+					//Imprimo los mensajes de error
+					foreach ($messages->all() as $error) {
+						echo $error."<br>";
+					}
+
+					echo '</div>';
+
+				}
+				else 
+				{	//print_r($datos_nuevo_control);
+					/*$control = Control::find($datos_nuevo_control['fk_id_paciente']);
+						
+					$control -> fk_id_paciente = $datos_nuevo_control['fk_id_paciente'];
+					$control -> fecha_control = $datos_nuevo_control['fecha_control'];
+					$control -> control = $datos_nuevo_control['control'];
+
+					$ctrl = $control->save();
+					
+					if($ctrl)
+					{	echo "OK!</br>";
+						//echo '<div class="alert alert-success" role="alert">El paciente se actualizó correctamente.<a href="'.url('/').'/pacientes/detalle/'.$datos_paciente['id'].'">Regresar al detalle del paciente.</a></div>';
+					}*/
+					
+					$ctrl = Control::create($datos_nuevo_control);
+					
+					if($ctrl)
+					{
+						echo "insercion OK <br>";
+					}
+					
+					/* DB::table('control')->insert
+					(
+						['fk_id_paciente' => 1, 
+						'fecha_control' => '2016-01-27',
+						'control' => 'nuevo control']
+					); */
+				}
+
+			}
+        }
     }
 
     /**

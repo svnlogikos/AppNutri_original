@@ -74,7 +74,8 @@
                     @else
                         <a class="btn btn-primary creacuestionario" role="button" href="{{ url('/cuestionario/create') }}/{{$detalle_paciente[0] -> id}}"><i class="fa fa-file-text-o"></i><span style="margin-left:5px;">Crear Cuestionario</span></a></li></a>
                     @endif
-
+					<!-- COMO VER LOS CONTROLES YA EXISTENTES? -->
+					<a class="btn btn-primary creacontrol" role="button" href="{{ url('/controles/create') }}/{{$detalle_paciente[0] -> id}}"><i class="fa fa-file-text-o"></i><span style="margin-left:5px;">Nuevo Control</span></a></li></a>
                     
                 </div>
             </div>

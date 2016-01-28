@@ -59,6 +59,16 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/cuestionario/show/{id_paciente}',['uses' => 'CuestionarioController@show', 'middleware' => 'auth']);
     Route::get('/cuestionario/create/{id_paciente}',['uses' => 'CuestionarioController@create', 'middleware' => 'auth']);
     Route::post('/cuestionario/store',['uses' => 'CuestionarioController@store', 'middleware' => 'auth']);
+	
+	/*
+	|--------------------------------------------------------------------------
+	| Routes Controles
+	|--------------------------------------------------------------------------
+	|
+	*/
+	
+	Route::get('/controles/create/{fk_id_paciente}',['uses' => 'ControlController@create', 'middleware' => 'auth']);
+	Route::post('/controles/store',['uses' => 'ControlController@store', 'middleware' => 'auth']);
 });
 
 
