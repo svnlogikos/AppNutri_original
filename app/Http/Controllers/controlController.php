@@ -38,9 +38,7 @@ class ControlController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->ajax()) 
-		{
-            if ($request->ajax()) 
+         if ($request->ajax()) 
 			{
 				$datos_nuevo_control = $request->all();
 
@@ -84,21 +82,11 @@ class ControlController extends Controller
 					
 					$ctrl = Control::create($datos_nuevo_control);
 					
-					if($ctrl)
-					{
-						echo "insercion OK <br>";
-					}
-					
-					/* DB::table('control')->insert
-					(
-						['fk_id_paciente' => 1, 
-						'fecha_control' => '2016-01-27',
-						'control' => 'nuevo control']
-					); */
+					echo '<div class="alert alert-success" role="alert">El control se creó correctamente. <a href="'.url('/').'/pacientes/detalle/'.$datos_nuevo_control['fk_id_paciente'].'">Volver al detalle del paciente.</a></div>';
 				}
 
 			}
-        }
+        
     }
 
     /**
