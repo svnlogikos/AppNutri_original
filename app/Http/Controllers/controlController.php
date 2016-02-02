@@ -66,10 +66,10 @@ class ControlController extends Controller
 
 				}
 				else 
-				{	
+				{	//print_r($datos_nuevo_control);
 					$ctrl = Control::create($datos_nuevo_control);
 					
-					echo '<div class="alert alert-success" role="alert">El control se creó correctamente. <a href="'.url('/').'/pacientes/detalle/'.$datos_nuevo_control['fk_id_paciente'].'">Volver al detalle del paciente.</a></div>';
+					echo '<div class="alert alert-success" role="alert">El control se creó correctamente. <a href="'.url('/').'/pacientes/detalle/'.$ctrl['fk_id_paciente'].'">Volver al detalle del paciente.</a></div>';
 				}
 
 			}
