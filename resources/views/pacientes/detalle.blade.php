@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
+<?php
+session_start();
+
+$_SESSION['nombre_paciente'] = $detalle_paciente[0]->nombre_apellido;
+$_SESSION['id_paciente'] = $detalle_paciente[0]->id;
+?>
 
 @section('content')
-
 <div class="container-fluid spark-screen">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -74,7 +79,10 @@
                     @else
                         <a class="btn btn-primary creacuestionario" role="button" href="{{ url('/cuestionario/create') }}/{{$detalle_paciente[0] -> id}}"><i class="fa fa-file-text-o"></i><span style="margin-left:5px;">Crear Cuestionario</span></a></li></a>
                     @endif
-					<!-- COMO VER LOS CONTROLES YA EXISTENTES? -->
+					
+					@if (App\Control::existeControl($detalle_paciente[0] -> id))
+						<a class="btn btn-primary listacontroles" role="button" href="{{ url('/controles/list') }}/{{$detalle_paciente[0] -> id}}"><i class="fa fa-info"></i><span style="margin-left:5px;">Ver Controles</span></a></li></a>
+					@endif					
 					<a class="btn btn-primary creacontrol" role="button" href="{{ url('/controles/create') }}/{{$detalle_paciente[0] -> id}}"><i class="fa fa-file-text-o"></i><span style="margin-left:5px;">Nuevo Control</span></a></li></a>
                     
                 </div>

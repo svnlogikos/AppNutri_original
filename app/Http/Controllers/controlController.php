@@ -15,9 +15,11 @@ class ControlController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($fk_id_paciente)
     {
-        //
+        $listadoControles =  Control::getControles($fk_id_paciente);
+
+        return \View::make('controles.list', array('listado_controles'=>$listadoControles));
     }
 
     /**

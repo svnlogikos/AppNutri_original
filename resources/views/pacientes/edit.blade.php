@@ -99,7 +99,9 @@
                 		
                 		<button type="submit" class="btn btn-danger pull-right" id="edita_paciente">Editar</button>
                 	</form>
+					<a class="btn btn-primary" role="button" href="{{ url('/') }}"><i class="fa fa-arrow-left"></i><span style="margin-left:5px;">Regresar</span></a></li></a>
                 </div>
+				
             </div>
         </div>
     </div>
