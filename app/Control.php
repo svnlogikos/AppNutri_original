@@ -19,8 +19,20 @@ class Control extends Model
    
     public static function getControles($fk_id_paciente)
 	{
-    	$Controles = \DB::table('control')->where('fk_id_paciente','=',$fk_id_paciente)->orderBy('fecha_control','asc')->get();
-    	return $Controles;
+    	
+        $Paciente = \DB::table('paciente')
+                            ->where('id','=',$fk_id_paciente)->get();
+
+        $Controles = \DB::table('control')
+                            ->where('fk_id_paciente','=',$fk_id_paciente)->orderBy('fecha_control','asc')->get();
+
+        /*$Controles = \DB::table('control')
+                            ->join('paciente','control.fk_id_paciente','=','paciente.id')
+                            ->where('control.fk_id_paciente','=',$fk_id_paciente)->orderBy('control.fecha_control','asc')->get();*/
+
+        $Datos = array($Paciente,$Controles);
+
+    	return $Datos;
     }
 	/*
     public static function getDetallePaciente($elId){
