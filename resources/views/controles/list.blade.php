@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-<?php
-session_start();
-?>
-
 @section('content')
 <div class="container-fluid spark-screen">
     <div class="row">

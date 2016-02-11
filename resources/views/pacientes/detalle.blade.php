@@ -1,12 +1,5 @@
 @extends('layouts.app')
 
-<?php
-session_start();
-
-$_SESSION['nombre_paciente'] = $detalle_paciente[0]->nombre_apellido;
-$_SESSION['id_paciente'] = $detalle_paciente[0]->id;
-?>
-
 @section('content')
 <div class="container-fluid spark-screen">
     <div class="row">
