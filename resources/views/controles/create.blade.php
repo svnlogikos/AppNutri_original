@@ -24,6 +24,7 @@
 	                		</div>	
 						</div>
                 		<button type="submit" class="btn btn-danger pull-right" id="alta_control">Crear</button>
+                        <a class="btn btn-primary" role="button" href="{{ url('/pacientes/detalle/') }}/{{ $id_paciente }} "><i class="fa fa-arrow-left"></i><span style="margin-left:5px;">Regresar</span></a></li></a>
                 	</form>
                 </div>
             </div>
