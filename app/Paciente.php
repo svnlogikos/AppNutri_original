@@ -14,7 +14,7 @@ class Paciente extends Model
    
     public static function getPacientes()
 	{
-    	$Pacientes = \DB::table('paciente')->orderBy('id','desc')->get();
+    	$Pacientes = \DB::table('paciente')->orderBy('id','desc')->get(array('id','obra_social','nombre_apellido'));
     	//$Pacientes = \DB::table('Paciente')->get();
     	return $Pacientes;
     }

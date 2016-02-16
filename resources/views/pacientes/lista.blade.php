@@ -18,8 +18,6 @@
                                 <th class="text-center">#</th>
                                 <th class="text-center">Nombre y Apellido</th>
                                 <th class="text-center">Obra Social</th>
-                                <th class="text-center">Edad</th>
-                                <th class="text-center">Teléfono</th>
                                 <th colspan="3" class="text-center">Operaciones</th>
                             </tr>
                         </thead>
@@ -34,12 +32,6 @@
                                     </td>
                                     <td>
                                         {{$paciente -> obra_social}}
-                                    </td>
-                                    <td>
-                                        {{$paciente -> edad}}
-                                    </td>
-                                    <td>
-                                        {{$paciente -> telefono}}
                                     </td>
                                     <td class="text-center">
                                         <a class="btn btn-primary detalles" role="button" href="pacientes/detalle/{{$paciente -> id}}" id="{{$paciente -> id}}"><i class="fa fa-info"></i><span style="margin-left:5px;">Detalles</span></a></li></a>
