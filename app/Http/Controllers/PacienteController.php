@@ -196,4 +196,32 @@ class PacienteController extends Controller
         Paciente::destroy($id);
         echo '<div class="alert alert-success" role="alert">El paciente se eliminó correctamente.</div>';
     }
+
+    /**
+     * Busca los pacientes que coincidan con el criterio de búsqueda
+     *
+     * @param  string  $criterio
+     * @return \Illuminate\Http\Response
+     */
+    public function search($criterio)
+    {
+        $resultado_busqueda = Paciente::buscaPaciente($criterio);
+
+        foreach ($resultado_busqueda as $paciente) {
+            echo '<tr data-id="'.$paciente -> id.'">';
+            echo '<td>'.$paciente -> id.'</td>';
+            echo '<td>'.$paciente -> nombre_apellido.'</td>';
+            echo '<td>'.$paciente -> obra_social.'</td>';
+            echo '<td class="text-center">';
+            echo'<a class="btn btn-primary detalles" role="button" href="pacientes/detalle/'.$paciente -> id.'" id="'.$paciente -> id.'"><i class="fa fa-info"></i><span style="margin-left:5px;">Detalles</span></a></li></a>';
+            echo '</td>';
+            echo '<td class="text-center">';
+            echo '<a class="btn btn-primary" role="button" href="pacientes/edit/'.$paciente -> id.'"><i class="fa fa-pencil"></i><span style="margin-left:5px;">Editar</span></a></li></a>';
+            echo '</td>';
+            echo '<td class="text-center">';
+            echo'       <a class="btn btn-danger btn-eliminar" role="button" href="#!"><i class="fa fa-minus"></i><span style="margin-left:5px;">Eliminar</span></a></li></a>';
+            echo '</td>';
+            echo '</tr>';
+        }
+    }
 }

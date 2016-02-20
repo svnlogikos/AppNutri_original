@@ -49,6 +49,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/pacientes/destroy/{id}',['uses' => 'PacienteController@destroy', 'middleware' => 'auth']);
 	Route::get('/pacientes/edit/{id}',['uses' => 'PacienteController@edit', 'middleware' => 'auth']);
 	Route::post('/pacientes/update',['uses' => 'PacienteController@update', 'middleware' => 'auth']);
+	Route::post('/pacientes/search/{criterio}',['uses' => 'PacienteController@search', 'middleware' => 'auth']);
 
     /*
 	|--------------------------------------------------------------------------

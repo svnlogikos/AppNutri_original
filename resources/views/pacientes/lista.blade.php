@@ -10,7 +10,19 @@
                 <div class="panel-heading">Listado de Pacientes</div>
 
                 <div class="panel-body">
-                <a class="btn btn-danger" role="button" href="{{ url('/pacientes/create') }}"><i class="fa fa-plus"></i><span style="margin-left:5px;">Nuevo Paciente</span></a></li></a>
+                <div class="row">
+                    <form action="{{ url('/pacientes/search') }}" method="post" class="navbar-form navbar-left" role="search" id="form_busca_paciente">
+                        <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                        <div class="form-group">
+                            <input type="text" class="form-control criterio" placeholder="Buscar Paciente">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="busca_paciente">Buscar</button>
+                    </form>
+                    <a class="btn btn-danger" role="button" href="{{ url('/pacientes/create') }}"><i class="fa fa-plus"></i><span style="margin-left:5px;">Nuevo Paciente</span></a></li></a>
+                </div>
+                
+
+                <br>
                 <div class="table-responsive">
                     <table id="listado_pacientes" class="table table-bordered table-hover">
                         <thead>

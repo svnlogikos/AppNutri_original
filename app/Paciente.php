@@ -14,8 +14,11 @@ class Paciente extends Model
    
     public static function getPacientes()
 	{
-    	$Pacientes = \DB::table('paciente')->orderBy('id','desc')->get(array('id','obra_social','nombre_apellido'));
-    	//$Pacientes = \DB::table('Paciente')->get();
+    	$Pacientes = \DB::table('paciente')
+                                            ->orderBy('id','desc')
+                                            ->take(30)
+                                            ->get(array('id','obra_social','nombre_apellido'));
+
     	return $Pacientes;
     }
 
@@ -24,6 +27,13 @@ class Paciente extends Model
     	$detallePaciente = \DB::table('paciente')->where('id','=',$elId)->get(array('id','obra_social','paciente_desde','nombre_apellido','edad','domicilio','telefono','motivo_consulta','actividad_laboral','horario_trabajo','grupo_familiar','patologias',
   		'comsume_medicacion','alergias_alimentarias','talla','peso_habitual','peso_actual','peso_ideal','email','contorno_cintura','contorno_cadera'));
     	return $detallePaciente;
+    }
+
+    public static function buscaPaciente($criterio)
+    {
+        $detallePaciente = \DB::table('paciente')->where('nombre_apellido','like','%'.$criterio.'%')->get(array('id','obra_social','paciente_desde','nombre_apellido','edad','domicilio','telefono','motivo_consulta','actividad_laboral','horario_trabajo','grupo_familiar','patologias',
+        'comsume_medicacion','alergias_alimentarias','talla','peso_habitual','peso_actual','peso_ideal','email','contorno_cintura','contorno_cadera'));
+        return $detallePaciente;
     }
 
     

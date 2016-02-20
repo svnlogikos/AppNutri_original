@@ -72,7 +72,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Acceder</a></li>
-                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
+                        <!--<li><a href="{{ url('/register') }}">Registrarse</a></li>-->
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -96,6 +96,12 @@
 
     <!-- JavaScripts -->
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    <footer class="row">
+        <div class="container text-center">
+            <p style="border-top: 1px solid #ddd; padding-top: 5px;">Copyright © 2016/17 - AppInsumos | Lic. Silvia Mendoza | Desarrollado por <a href="http://www.logikos.com.ar">Logikos</a></p>
+        </div>
+    </footer>
 
 </body>
 </html>

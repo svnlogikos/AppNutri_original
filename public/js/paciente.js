@@ -19,8 +19,7 @@ jQuery(document).ready(function($){
                     
                 },
                 beforeSend: function () {
-                        //$(".modal-footer").fadeIn();
-                        //$(".modal-footer").html("<img src='http://app_insumos_pre/public/theme/ajax-loader.gif'>");
+                        
                 },
                 success:  function (response) {
                         //$("#decide").fadeOut();
@@ -55,8 +54,7 @@ jQuery(document).ready(function($){
                     
                 },
           beforeSend: function () {
-                  //$("#resultados_ajax").fadeIn();
-                  //$("#resultados_ajax").html("<img src='http://app_insumos_pre/public/theme/ajax-loader.gif'>");
+                  $("#mensajes_ajax").html("<img class='img-responsive center-block' style='margin: 0 auto;' src='../img/gif-load.gif'>");
                 },
           success:  function (response) {
                  $("#mensajes_ajax").html(response);
@@ -86,8 +84,7 @@ jQuery(document).ready(function($){
                     
                 },
           beforeSend: function () {
-                  //$("#resultados_ajax").fadeIn();
-                  //$("#resultados_ajax").html("<img src='http://app_insumos_pre/public/theme/ajax-loader.gif'>");
+                  $("#mensajes_ajax").html("<img class='img-responsive center-block' style='margin: 0 auto;' src='../../../img/gif-load.gif'>");
                 },
           success:  function (response) {
                  $("#mensajes_ajax").html(response);
@@ -118,8 +115,7 @@ jQuery(document).ready(function($){
                     
                 },
           beforeSend: function () {
-                  //$("#resultados_ajax").fadeIn();
-                  //$("#resultados_ajax").html("<img src='http://app_insumos_pre/public/theme/ajax-loader.gif'>");
+                  $("#mensajes_ajax").html("<img class='img-responsive center-block' style='margin: 0 auto;' src='../img/gif-load.gif'>");
                 },
           success:  function (response) {
                  $("#mensajes_ajax").html(response);
@@ -169,8 +165,8 @@ jQuery(document).ready(function($) {
                     
                 },
       beforeSend: function () {
-                  //$("#resultados_ajax").fadeIn();
-                  //$("#resultados_ajax").html("<img src='http://app_insumos_pre/public/theme/ajax-loader.gif'>");
+                  
+                  $("#mensajes_ajax").html("<img class='img-responsive center-block' style='margin: 0 auto;' src='../img/gif-load.gif'>");
                 },
       success:  function (response) {
                  $("#mensajes_ajax").html(response);
@@ -179,5 +175,36 @@ jQuery(document).ready(function($) {
     })
 
     $(this).parents('tr').fadeOut('slow');  
+  });;
+});
+
+jQuery(document).ready(function($) {
+  $('#busca_paciente').click(function(event) {
+    event.preventDefault();
+    var elcriterio = $('.criterio').val();
+    var formulario = $('#form_busca_paciente');
+    var la_url = formulario.attr('action')+'/'+elcriterio;
+
+    if (elcriterio!="") {
+
+         $.ajax({
+      url: la_url,
+      type: 'POST',
+      data: formulario.serialize(),
+      error: function(e) {
+                  alert('Error' + e.toString());
+                    
+                },
+      beforeSend: function () {
+                  //$("#resultados_ajax").fadeIn();
+                  $("#listado_pacientes > tbody").html("<img class='img-responsive center-block' style='margin: 0 auto;' src='../img/gif-load.gif'>");
+                },
+      success:  function (response) {
+                 $("#listado_pacientes > tbody").hide().html(response).fadeIn('slow');
+                }
+      })
+    };
+
+   
   });;
 });
