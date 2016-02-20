@@ -11,7 +11,7 @@
                 	<form action="{{ url('/pacientes/update') }}" method="POST" role="form" id="form-edit-paciente">
                 		<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 						<input type="hidden" name="id" value="{{ $paciente_edit[0] -> id }}" />
-                		<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6">
+                		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
                 			<div class="form-group">
 	                			<label for="">Obra Social</label>
@@ -54,7 +54,7 @@
 	                			<input value="{{ $paciente_edit[0] -> grupo_familiar }}" type="text" class="form-control" name="grupo_familiar">
 	                		</div>
                 		</div>
-                		<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6">
+                		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 			<div class="form-group">
 	                			<label for="">Patologias</label>
 	                			<input value="{{ $paciente_edit[0] -> patologias }}" type="text" class="form-control" name="patologias">
@@ -99,7 +99,7 @@
                 		
                 		<button type="submit" class="btn btn-danger pull-right" id="edita_paciente">Editar</button>
                 	</form>
-					<a class="btn btn-primary" role="button" href="{{ url('/') }}"><i class="fa fa-arrow-left"></i><span style="margin-left:5px;">Regresar</span></a></li></a>
+					<a class="btn btn-primary" role="button" href="{{ url('/pacientes') }}"><i class="fa fa-arrow-left"></i><span style="margin-left:5px;">Regresar</span></a></li></a>
                 </div>
 				
             </div>
